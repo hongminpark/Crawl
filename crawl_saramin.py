@@ -203,44 +203,10 @@ for i in param['cal_dt']:
 
 
 
-# csv 파일 읽고 쓰기
+# read and write csv file
 fieldnames = ["name", "jobTitle", "startDate", "finishDate", "href", "salary"]
-with open("/Users/k/Desktop/crawl_proj/result.csv", "w", encoding="utf-8") as f:
+with open("", "w", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=fieldnames)
     w.writeheader()
     w.writerows(output)
-
-#
-# for i in param['cal_dt']:
-#     yyyymm = i
-#     # 기업 : 대기업, 매출1000대기업,
-#     # 업종 : {up_cd: 3-IT, 4-금융}
-#     http_url = url+"?"+"cal_dt="+yyyymm+"&"+"cal_kind%5B%5D=start&up_cd%5B%5D=4&company_scale_calendar%5B%5D=scalecd001&company_scale_calendar%5B%5D=scalecd002"
-#     result = getData(http_url, yyyymm)
-#     if result == None:
-#         print("None")
-#     else:
-#
-#         for i in result:
-#             if i["href"].startswith("http://www.saramin.co.kr/zf_user"):
-#                 try:
-#                     newUrl = i["href"]
-#                     newResult = getCompanyData(newUrl)
-#                     i["jobTitle"] = newResult["jobTitle"]
-#                     i["finishDate"] = newResult["finishDate"]
-#                 except:
-#                     i["jobTitle"] = "Error: Urlopen error"
-#                     i["finishDate"] = "Error: Urlopen error"
-#             else:
-#                 i["jobTitle"] = None
-#                 i["finishDate"] = None
-#         print(result)
-#         output = output + result
-#
-# # csv 파일 읽고 쓰기
-# fieldnames = ["name", "jobTitle", "startDate", "finishDate", "href"]
-# with open("/Users/k/Desktop/crawl_proj/result.csv", "w", encoding="utf-8") as f:
-#     w = csv.DictWriter(f, fieldnames=fieldnames)
-#     w.writeheader()
-#     w.writerows(output)
 
